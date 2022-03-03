@@ -1,7 +1,38 @@
-import { Link } from "react-router-dom"
+import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { signup } from "../services/user.service"
 
 const SignUpPage=(props)=>
 {
+//Keep Email address
+const[username,setUsername]=useState('')
+const[password,setPassword]=useState('')
+
+//For navigation
+
+const navigate =useNavigate()
+
+const onSignup=async ()=>{
+    if (username.length===0){
+        alert('Please enter email')
+    }
+    else if (password.length===0){
+        alert('Please Enter Password')
+    }
+    else{
+        //Make the SignUp API Call
+const result=await signup(username,password)
+if (result){
+
+    //go to sign in
+    navigate('/signin')
+
+}
+
+    }
+
+}
+
     return(
         <div>
             <h1 className="header">Sign Up page</h1>
@@ -9,18 +40,24 @@ const SignUpPage=(props)=>
             <div className="form">
     
     
-     <div class="mb-3">
-    <label  class="form-label">Email address</label>
-    <input type="email" class="form-control" />
+     <div className="mb-3">
+    <label  className="form-label">Username </label>
+    <input onChange={(e)=>{
+setUsername(e.target.value)
+    }} 
+type="text" className="form-control" />
     </div>
 
-    <div class="mb-3">
-    <label  class="form-label">Password</label>
-    <input type="password" class="form-control" />
+    <div className="mb-3">
+    <label  className="form-label">Password</label>
+    <input onChange={(e)=>{
+setPassword(e.target.value)
+    }} 
+    type="password" className="form-control" />
     </div>
 
 
-    <div class="mb-3">
+    <div className="mb-3">
    <div>
        Already Got an account ? Sign In
        <Link to="/signin">Here</Link>
@@ -28,8 +65,8 @@ const SignUpPage=(props)=>
     </div>
 
     
-    <div class="mb-3">
-   <button className="btn btn-success">Sign Up</button>
+    <div className="mb-3">
+   <button onClick={onSignup} className="btn btn-success">Sign Up</button>
     </div>
    
 

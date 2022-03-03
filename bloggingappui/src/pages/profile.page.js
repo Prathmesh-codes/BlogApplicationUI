@@ -1,7 +1,7 @@
 const ProfilePage=(props)=>{
     return(
         <div>
-            <h1>Profile Page</h1>
+            <h1 className="header">Profile Page</h1>
         </div>
     )
 }
