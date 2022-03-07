@@ -43,7 +43,7 @@ const SignInPage=(props)=>{
    
     return(
         <div>
-            <h1 className="header">Sign In page</h1>
+           
 
             <div className="form">
     
@@ -73,7 +73,7 @@ const SignInPage=(props)=>{
 
     
     <div className="mb-3">
-   <button onClick={onSignin} className="btn btn-success">Sign In</button>
+   <button onClick={onSignin} className="btn btn-outline-success">Sign In</button>
     </div>
    
 
