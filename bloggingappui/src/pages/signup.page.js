@@ -34,9 +34,10 @@ if (result){
 }
 
     return(
-        <div>
-            <h1 className="header">Sign Up page</h1>
+        
 
+        
+        <div>
             <div className="form">
     
     
@@ -66,7 +67,7 @@ setPassword(e.target.value)
 
     
     <div className="mb-3">
-   <button onClick={onSignup} className="btn btn-success">Sign Up</button>
+   <button onClick={onSignup} className="btn btn-outline-success">Sign Up</button>
     </div>
    
 
@@ -74,6 +75,7 @@ setPassword(e.target.value)
 
             </div>
         </div>
+    
     )
 }
 export default SignUpPage
